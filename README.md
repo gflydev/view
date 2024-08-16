@@ -4,14 +4,17 @@
     https://www.gfly.dev
     All rights reserved.
 
-# Use Pongo template engine
+# gFly View - Pongo engine
 
-### Install
+### Usage
+
+Install
 ```bash
-go get -u github.com/gflydev/view/pongo@latest
+go get -u github.com/gflydev/view/pongo@v1.0.2
 ```
 
-### Register
+
+Quick usage `main.go`
 ```go
 import (
     "github.com/gflydev/core"
@@ -20,4 +23,31 @@ import (
 
 // Register view
 core.RegisterView(pongo.New())
+```
+
+### Page & View
+```go
+// =========================================================================================
+//                                     About page
+// =========================================================================================
+
+// NewAboutPage As a constructor to create a About Page.
+func NewHomePage() *AboutPage {
+return &AboutPage{}
+}
+
+type AboutPage struct {
+core.Page
+}
+
+func (m *AboutPage) Handle(c *core.Ctx) error {
+return c.View("about", core.Data{
+"title": "About Us",
+})
+}
+```
+
+Template file `resources/views/about.tpl`
+```html
+<center><h2>{{ title }}</h2></center>
 ```
