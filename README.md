@@ -33,17 +33,17 @@ core.RegisterView(pongo.New())
 
 // NewAboutPage As a constructor to create a About Page.
 func NewHomePage() *AboutPage {
-return &AboutPage{}
+    return &AboutPage{}
 }
 
 type AboutPage struct {
-core.Page
+    core.Page
 }
 
 func (m *AboutPage) Handle(c *core.Ctx) error {
-return c.View("about", core.Data{
-"title": "About Us",
-})
+    return c.View("about", core.Data{
+        "title": "About Us",
+    })
 }
 ```
 
