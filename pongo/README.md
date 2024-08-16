@@ -2,6 +2,12 @@
 
 ### Usage
 
+Install
+```bash
+go get -u github.com/gflydev/view/pongo@latest
+```
+
+
 Quick usage
 ```go
 import (
